@@ -61,24 +61,41 @@ def delete_song(name):
         print("Song not found")
 
 def total_time():
-    """Allows user to see running time of all songs"""
+    """Displays the running time of a selected song"""
 
-    total = 0
+    song_name = input("Enter song name: ")
+
+    found = False
 
     for item in songs:
-        total += item["time"]
+        if item["song"].lower() == song_name.lower():
+            print(item["song"], "is", item["time"], "seconds long.")
+            found = True
+            break
 
-    print("Total running time:", total, "minutes")
+    if not found:
+        print("Song not found.")
 
+
+songs = [
+    {"song": "Cruel Summer", "time": 230},
+    {"song": "Espresso", "time": 175},
+    {"song": "Birds of a Feather", "time": 210},
+    {"song": "Iris", "time": 200}
+]
 
 def view_songs():
-    """Functionality to view all songs stored in list"""
-    print("All songs")
-    #loop over each item that is stored in the program
-    for item in songs:
-        print(item)
-        
+    """Displays all songs in the playlist."""
 
+    if len(songs) == 0:
+        print("No songs in playlist.")
+    else:
+        print("\nPlaylist")
+        for item in songs:
+            print(f"Song: {item['song']}")
+            print(f"Time: {item['time']} seconds")
+            print("-" * 20)
+            
 # Loop to keep menu running
 running = True
 
