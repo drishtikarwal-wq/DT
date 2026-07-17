@@ -1,4 +1,3 @@
-
 ##
 #song tracker
 #allows to track all songs
@@ -16,7 +15,7 @@ def add_songs():
 
     while True:
         try:
-            time = float(input("Enter running time (minutes): "))
+            time = float(input("Enter running time (seconds): "))
             break
         except ValueError:
             print("Invalid choice, please enter a number.")
@@ -61,12 +60,21 @@ def delete_song(name):
     if not found:
         print("Song not found")
 
+def total_time():
+    """Allows user to see running time of all songs"""
+
+    total = 0
+
+    for item in songs:
+        total += item["time"]
+
+    print("Total running time:", total, "minutes")
+
 
 def view_songs():
     """Functionality to view all songs stored in list"""
-
     print("All songs")
-
+    #loop over each item that is stored in the program
     for item in songs:
         print(item)
         
@@ -96,6 +104,9 @@ while running:
     elif choice == "D":
         song = input("Enter song name: ")
         delete_song(song)
+
+    elif choice.upper() == "T":
+        total_time()
 
     elif choice.upper() == "P":
          view_songs()
