@@ -1,16 +1,16 @@
-##
-#song tracker
-#allows to track all songs
-#drishti
-#17
-#06.07.26
+"""Manage a music playlist by adding, editing, deleting, and viewing songs."""
 
+# Song tracker.
+# Allows the user to track all songs.
+# Drishti.
+# 17.
+# 06.07.26.
 
 songs = []
 
-def add_songs():
-    """Allows user to add song and running time"""
 
+def add_songs():
+    """Add a song and its running time."""
     song_name = input("Enter song name: ")
 
     while True:
@@ -30,8 +30,7 @@ def add_songs():
 
 
 def edit_song(name, time):
-    """Allows user to edit the length of a song"""
-
+    """Edit the length of a song."""
     found = False
 
     for item in songs:
@@ -46,8 +45,7 @@ def edit_song(name, time):
 
 
 def delete_song(name):
-    """Allows user to delete a song"""
-
+    """Delete a song from the playlist."""
     found = False
 
     for i in range(len(songs)):
@@ -60,9 +58,9 @@ def delete_song(name):
     if not found:
         print("Song not found")
 
-def total_time():
-    """Displays the running time of a selected song"""
 
+def total_time():
+    """Display the running time of a selected song."""
     song_name = input("Enter song name: ")
 
     found = False
@@ -84,9 +82,9 @@ songs = [
     {"song": "Iris", "time": 200}
 ]
 
-def view_songs():
-    """Displays all songs in the playlist."""
 
+def view_songs():
+    """Display all songs in the playlist."""
     if len(songs) == 0:
         print("No songs in playlist.")
     else:
@@ -95,8 +93,9 @@ def view_songs():
             print(f"Song: {item['song']}")
             print(f"Time: {item['time']} seconds")
             print("-" * 20)
-            
-# Loop to keep menu running
+
+
+# Loop to keep the menu running.
 running = True
 
 while running:
@@ -126,7 +125,7 @@ while running:
         total_time()
 
     elif choice.upper() == "P":
-         view_songs()
+        view_songs()
 
     elif choice == "Q":
         running = False
@@ -134,6 +133,7 @@ while running:
 
     else:
         print("Invalid choice. Please try again.")
+
 
         
  
